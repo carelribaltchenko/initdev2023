@@ -105,7 +105,7 @@ def add_pair(liste):
             res+=i
     return res
 
-print(add_pair([12,13,6,5,7]))
+
 
 def last_voy(mot):
     """renvoie la dernierre voyelle d'un mot
@@ -120,5 +120,20 @@ def last_voy(mot):
     voy='aeiouy'
     for i in mot:
         if i in voy:
-            last = 1
+            last = i
     return last
+
+print(last_voy("buongiorno"))
+print(last_voy("bonjour"))
+
+
+def prop_neg(list):
+    liste1=[]
+    if list==[]:
+        return None
+    for i in list :
+        if i<0:
+            liste1.append(i)
+    return len(liste1)/len(list)
+
+#exercice 5 
