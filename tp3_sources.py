@@ -128,12 +128,52 @@ print(last_voy("bonjour"))
 
 
 def prop_neg(list):
-    liste1=[]
+    """renvoie la proportion de ngatifs
+
+    Args:
+        list (list): une liste d'entier 
+
+    Returns:
+        str: proportion de negatif
+    """    
+    c=0
     if list==[]:
         return None
     for i in list :
         if i<0:
-            liste1.append(i)
-    return len(liste1)/len(list)
+            c+=1
+    return c/len(list)
 
 #exercice 5 
+
+def sommme_pre_ent(n):
+    res=0
+    for i in range(1,n+1):
+        res+=i
+    return res
+
+def test_somme_pre_ent():
+    assert sommme_pre_ent(4)==10
+    assert sommme_pre_ent(100)==5050
+
+
+test_somme_pre_ent()
+
+def test_syracuse(val_init, n):
+    """renvoie le terme Un d'une suite de syracuse
+
+    Args:
+        val_init (int): strictement positif
+        n (int): strictement positif
+
+    Returns:
+        int: resultat de la suite de syracus
+    """    
+    U=val_init
+    for i in range(n-1):
+        if U%2==0:
+            U=U/2
+        elif U%2==1:
+            U=3*U+1
+    return U
+
