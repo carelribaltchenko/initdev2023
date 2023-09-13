@@ -67,6 +67,10 @@ def nb_mots(phrase):
     """    
     resultat = 0
     c1 = ''
+    if phrase == "":
+        return 0
+    if phrase[0] == " ":
+        resultat+=-1
     # au début de chaque tour de boucle
     # c1 vaut
     # c2 vaut
@@ -84,4 +88,37 @@ def test_nb_mots():
     assert nb_mots(" ce  test ne  marche pas ") == 5
     assert nb_mots("") == 0  # celui ci non plus
 
-test_nb_mots()
+
+#ex4
+def add_pair(liste):
+    """renvoie la somme de tous les nombres pairs d'une liste donnée
+
+    Args:
+        liste (list): une liste d'entier
+
+    Returns:
+        int: le resultat
+    """    
+    res = 0
+    for i in liste:
+        if i%2==0:
+            res+=i
+    return res
+
+print(add_pair([12,13,6,5,7]))
+
+def last_voy(mot):
+    """renvoie la dernierre voyelle d'un mot
+
+    Args:
+        mot (str): un mot ou chaine de caractere
+
+    Returns:
+        str: la derniere voyelle
+    """    
+    last = ""
+    voy='aeiouy'
+    for i in mot:
+        if i in voy:
+            last = 1
+    return last
