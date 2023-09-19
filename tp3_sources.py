@@ -151,7 +151,7 @@ def sommme_pre_ent(n):
     for i in range(1,n+1):
         res+=i
     return res
-
+"""res contiens la somme de tous les entiers jusqu'a i"""
 def test_somme_pre_ent():
     assert sommme_pre_ent(4)==10
     assert sommme_pre_ent(100)==5050
@@ -167,7 +167,7 @@ def test_syracuse(val_init, n):
         n (int): strictement positif
 
     Returns:
-        int: resultat de la suite de syracus
+        float: resultat de la suite de syracus
     """    
     U=val_init
     for i in range(n-1):
@@ -176,4 +176,11 @@ def test_syracuse(val_init, n):
         elif U%2==1:
             U=3*U+1
     return U
+
+
+def test_test_syracuse():
+    assert test_syracuse(8,14) == 4.0
+    assert test_syracuse(7,250)==2.0
+
+test_test_syracuse()
 
