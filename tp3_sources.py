@@ -184,3 +184,101 @@ def test_test_syracuse():
 
 test_test_syracuse()
 
+#exercice 6
+
+def mini_liste(liste):
+    """renvoie le plus petit terme de la liste
+
+    Args:
+        liste (list): une liste d'entier
+
+    Returns:
+        int: le plus petit nombre dans la liste
+    """    
+    res = liste[0]
+    for elt in liste:
+        if elt < res :
+            res = elt
+    return res
+
+def test_mini_liste():
+    assert mini_liste([5,4,8,9,3,5,7,2,0,4]) == 0
+    assert mini_liste([1,8,-1,5,4,-9,7,8]) == -9
+
+test_mini_liste()
+
+
+def ecart_mini_maxi(liste):
+    """renvoie l'ecart entre le plus grand terme et le plus petit terme d'une liste
+
+    Args:
+        liste (list): une liste d'entier
+
+    Returns:
+        int: un entier positif
+    """    
+    max=liste[0]
+    min=liste[0]
+    for elt in liste:
+        if elt<min:
+            min = elt
+        elif elt > max :
+            max = elt
+    return max - min
+
+def test_ecart_mini_maxi():
+    assert ecart_mini_maxi([5,4,8,9,3,5,7,2,0,4]) == 9
+    assert ecart_mini_maxi([1,8,-1,5,4,-9,7,8]) == 17
+
+test_ecart_mini_maxi()
+
+def sup_10(liste):
+    """renvoie le nombre de termes superieur a 10
+
+    Args:
+        liste (list): une liste d'entier
+
+    Returns:
+        int : le nombre de terme sup a 10
+    """    
+    c=0
+    for i in range(len(liste)):
+        if liste[i]>10:
+            c+=1
+    return c
+
+def test_sup_10():
+    assert sup_10([1,4,84,6,25,10,14,1,25,4]) == 4
+    assert sup_10([1,4,84,5,4,7,4,2,54,1,10]) == 2
+
+test_sup_10()
+
+def moy_neg(liste):
+    """renvoie la moyenne des nombres negatifs d'une liste
+
+    Args:
+        liste (list): liste d'entier
+
+    Returns:
+        None: none
+        int: list d'entier
+    """    
+    som=0
+    c=0
+    for elt in liste:
+        if elt<0:
+            som+=elt
+            c+=1
+    if c==0:
+        return None
+    return som/c
+
+def test_moy_neg():
+    assert moy_neg([1,2,5,7,8,9,6,4,5,7,8,4]) == None
+    assert moy_neg([1,4,8,7,-9,4,5,8,-7]) == -8
+
+test_moy_neg()
+
+def compt_sylabe(mot):
+    c1=""
+    
