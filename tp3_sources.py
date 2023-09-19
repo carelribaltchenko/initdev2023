@@ -1,57 +1,51 @@
 # exercice 1
-# def pair_supp_impair(entree):
-#     """[revoie si il y a plus de nombre pair que de nombre impair dans une liste donnée]
+def pair_supp_impair(entree):
+    """[revoie si il y a plus de nombre pair que de nombre impair dans une liste donnée]
 
-#     Args:
-#         entree ([list]): [liste d'entier]
+    Args:
+        entree ([list]): [liste d'entier]
 
-#     Returns:
-#         [bool]: [true si il y a plus de nombres pairs et false si plus de nombres impairs]
-#     """
-#     pair = 0
-#     nb_impair = 0
-#     # au début de chaque tour de boucle
-#     #  A COMPLETER
-#     for nbr in entree:
-#         if nbr % 2 == 0:
-#             pair += 1
-#         else:
-#             nb_impair += 1
-#     return pair >= nb_impair
+    Returns:
+        [bool]: [true si il y a plus de nombres pairs et false si plus de nombres impairs]
+    """
+    pair = 0
+    nb_impair = 0
+    # au début de chaque tour de boucle
+    #  A COMPLETER
+    for nbr in entree:
+        if nbr % 2 == 0:
+            pair += 1
+        else:
+            nb_impair += 1
+    return pair >= nb_impair
 
-# def test_pair_sup_impair():
-# print(pair_supp_impair([1,4,6,-2,-5,3,10]) == True
-# print(pair_supp_impair([-4,5,-11,-56,5,-11]) == False 
+
 
 # exercice 2
-# def min_sup(liste_nombres, valeur):
-#     """trouve le plus petit nombre d'une liste supérieur à une certaine valeur
+def min_sup(liste_nombres, valeur):
+    """trouve le plus petit nombre d'une liste supérieur à une certaine valeur
 
-#     Args:
-#         liste_nombres (list): la liste de nombres
-#         valeur (int ou float): la valeur limite du minimum recherché
+    Args:
+        liste_nombres (list): la liste de nombres
+        valeur (int ou float): la valeur limite du minimum recherché
 
-#     Returns:
-#         int ou float: le plus petit nombre de la liste supérieur à valeur
-#     """
+    Returns:
+        int ou float: le plus petit nombre de la liste supérieur à valeur
+    """
 
-#     if liste_nombres==[]:
-#         return None
-#     else :
-#         res = float("inf")
-#         for elem in liste_nombres:
-#             if valeur < elem and elem < res:
-#                 res = elem
-#         if res == float("inf"):
-#             res = None
-#     return res
+    if liste_nombres==[]:
+        return None
+    else :
+        res = float("inf")
+        for elem in liste_nombres:
+            if valeur < elem and elem < res:
+                res = elem
+        if res == float("inf"):
+            res = None
+    return res
 
 
 
-# print(min_sup([8, 12, 7, 3, 9, 2, 1, 4, 9], 5))
-# print(min_sup([-2, -5, 2, 9.8, -8.1, 7], 0))
-# print(min_sup([5, 7, 6, 5, 7, 3], 10))
-# print(min_sup([], 5))
 
 
 # exercice 3
@@ -82,11 +76,7 @@ def nb_mots(phrase):
     return resultat+1
 
 
-def test_nb_mots():
-    assert nb_mots("bonjour, il fait beau") == 4
-    assert nb_mots("houla!     je    mets beaucoup   d'  espaces    ") == 6
-    assert nb_mots(" ce  test ne  marche pas ") == 5
-    assert nb_mots("") == 0  # celui ci non plus
+
 
 
 #ex4
@@ -123,8 +113,6 @@ def last_voy(mot):
             last = i
     return last
 
-print(last_voy("buongiorno"))
-print(last_voy("bonjour"))
 
 
 def prop_neg(list):
@@ -152,12 +140,7 @@ def sommme_pre_ent(n):
         res+=i
     return res
 """res contiens la somme de tous les entiers jusqu'a i"""
-def test_somme_pre_ent():
-    assert sommme_pre_ent(4)==10
-    assert sommme_pre_ent(100)==5050
 
-
-test_somme_pre_ent()
 
 def test_syracuse(val_init, n):
     """renvoie le terme Un d'une suite de syracuse
@@ -178,11 +161,7 @@ def test_syracuse(val_init, n):
     return U
 
 
-def test_test_syracuse():
-    assert test_syracuse(8,14) == 4.0
-    assert test_syracuse(7,250)==2.0
 
-test_test_syracuse()
 
 #exercice 6
 
@@ -201,11 +180,7 @@ def mini_liste(liste):
             res = elt
     return res
 
-def test_mini_liste():
-    assert mini_liste([5,4,8,9,3,5,7,2,0,4]) == 0
-    assert mini_liste([1,8,-1,5,4,-9,7,8]) == -9
 
-test_mini_liste()
 
 
 def ecart_mini_maxi(liste):
@@ -226,11 +201,7 @@ def ecart_mini_maxi(liste):
             max = elt
     return max - min
 
-def test_ecart_mini_maxi():
-    assert ecart_mini_maxi([5,4,8,9,3,5,7,2,0,4]) == 9
-    assert ecart_mini_maxi([1,8,-1,5,4,-9,7,8]) == 17
 
-test_ecart_mini_maxi()
 
 def sup_10(liste):
     """renvoie le nombre de termes superieur a 10
@@ -247,11 +218,7 @@ def sup_10(liste):
             c+=1
     return c
 
-def test_sup_10():
-    assert sup_10([1,4,84,6,25,10,14,1,25,4]) == 4
-    assert sup_10([1,4,84,5,4,7,4,2,54,1,10]) == 2
 
-test_sup_10()
 
 def moy_neg(liste):
     """renvoie la moyenne des nombres negatifs d'une liste
@@ -273,12 +240,83 @@ def moy_neg(liste):
         return None
     return som/c
 
+
+
+def compt_sylabe(mot):
+    """renvoie le nombre de sylabe dans le mot
+
+    Args:
+        mot (str): un mot
+
+    Returns:
+        int: nombre de sylabes dans le mot
+    """    
+    voy = "aeiouy"
+    c1=""
+    nb = 0
+    if mot[0]in voy:
+        nb+=1
+    for c2 in mot:
+        if c1 not in voy and c2 in voy:
+            nb+=1
+        c1=c2
+    return nb
+
+#tous les asserts
+
+
 def test_moy_neg():
     assert moy_neg([1,2,5,7,8,9,6,4,5,7,8,4]) == None
     assert moy_neg([1,4,8,7,-9,4,5,8,-7]) == -8
 
-test_moy_neg()
 
-def compt_sylabe(mot):
-    c1=""
-    
+def test_compt_sylabe():
+    assert compt_sylabe("bonbon") ==2
+    assert compt_sylabe("ami") == 2
+
+
+def test_sup_10():
+    assert sup_10([1,4,84,6,25,10,14,1,25,4]) == 4
+    assert sup_10([1,4,84,5,4,7,4,2,54,1,10]) == 2
+
+def test_ecart_mini_maxi():
+    assert ecart_mini_maxi([5,4,8,9,3,5,7,2,0,4]) == 9
+    assert ecart_mini_maxi([1,8,-1,5,4,-9,7,8]) == 17
+
+def test_mini_liste():
+    assert mini_liste([5,4,8,9,3,5,7,2,0,4]) == 0
+    assert mini_liste([1,8,-1,5,4,-9,7,8]) == -9
+
+def test_test_syracuse():
+    assert test_syracuse(8,14) == 4.0
+    assert test_syracuse(7,250)==2.0
+
+def test_somme_pre_ent():
+    assert sommme_pre_ent(4)==10
+    assert sommme_pre_ent(100)==5050
+
+def test_nb_mots():
+    assert nb_mots("bonjour, il fait beau") == 4
+    assert nb_mots("houla!     je    mets beaucoup   d'  espaces    ") == 6
+    assert nb_mots(" ce  test ne  marche pas ") == 5
+    assert nb_mots("") == 0  # celui ci non plus
+
+def test_pair_sup_impair():
+    assert pair_supp_impair([1,4,6,-2,-5,3,10]) == True
+    assert pair_supp_impair([-4,5,-11,-56,5,-11]) == False 
+
+def test_min_sup():
+    assert(min_sup([8, 12, 7, 3, 9, 2, 1, 4, 9], 5)) == 7
+    assert(min_sup([-2, -5, 2, 9.8, -8.1, 7], 0)) == 2
+    assert(min_sup([5, 7, 6, 5, 7, 3], 10)) == None
+    assert(min_sup([], 5)) == None
+
+test_min_sup()
+test_pair_sup_impair()
+test_nb_mots()
+test_somme_pre_ent()
+test_test_syracuse()
+test_mini_liste()
+test_ecart_mini_maxi()
+test_moy_neg()
+test_sup_10()
