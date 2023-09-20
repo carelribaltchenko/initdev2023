@@ -1,3 +1,5 @@
+phrase = "Cela fait déjà 28 jours! 28 jours à l’IUT’O! Cool!!"
+
 def plus_long_plateau(chaine):
     """recherche la longueur du plus grand plateau d'une chaine
     Args:
@@ -67,15 +69,23 @@ def recherche_mot(liste, lettre):
     Returns:
         list: la liste des mots commencant par la lettre donnée
     """    
-    L=[]
+    L1=[]
     for i in range(len(liste)):
         if liste[i][0] == lettre:
-            L.append(liste[i])
-    return L
+            L1.append(liste[i])
+    return L1
 
 print(recherche_mot(["salut","hello","hallo","ciao","hola"],"a"))
 
 def liste_mot_texte(texte):
+    """renvoie la liste des mots d'un texte
+
+    Args:
+        texte (str): un texte 
+
+    Returns:
+        list: la liste des mots du texte
+    """    
     L=[]
     mot = ''
     for i in range(len(texte)):
@@ -87,5 +97,21 @@ def liste_mot_texte(texte):
                 mot = ''
     return L 
 
-print(liste_mot_texte("Cela fait déjà 28 jours! 28 jours à l’IUT’O! Cool!!"))
+print(liste_mot_texte(phrase))
+
+def liste_mot_lettre_texte(texte, lettre):
+    """renvoie les mots qui commencent par une lettre donnée dans une phrase
+
+    Args:
+        texte (str): une phrase
+        lettre (str): une lettre
+
+    Returns:
+        list: une liste avec les mots qui commencent par la lettre donnée
+    """    
+    L=[]
+    Liste=liste_mot_texte(texte)
+    L.append(recherche_mot(Liste, lettre))
+    return L
+print(liste_mot_lettre_texte(phrase, 'C'))
 
