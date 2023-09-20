@@ -30,6 +30,9 @@ population = [45871, 64668,  38426, 43442, 30664, 38250, 22168, 116238, 136463,
               25725]
 
 def ville_plus_peuplee():
+    """
+        renvoie le nom de la ville la plus peuplée
+    """    
     for i in range(1,len(population)):
         if population[i]>population[i-1]:
             c=population[i]
@@ -53,3 +56,36 @@ def chaine_nombre(chaine):
     return a
 
 print(chaine_nombre("123456789"))
+
+def recherche_mot(liste, lettre):
+    """renvoie une liste avec tous les mots commencant par une lettre donnée
+
+    Args:
+        liste (list): une liste de str
+        lettre (str): une lettre
+
+    Returns:
+        list: la liste des mots commencant par la lettre donnée
+    """    
+    L=[]
+    for i in range(len(liste)):
+        if liste[i][0] == lettre:
+            L.append(liste[i])
+    return L
+
+print(recherche_mot(["salut","hello","hallo","ciao","hola"],"a"))
+
+def liste_mot_texte(texte):
+    L=[]
+    mot = ''
+    for i in range(len(texte)):
+        if texte[i].isalpha():
+            mot = mot + texte[i]
+        else:
+            if mot != '':
+                L.append(mot)
+                mot = ''
+    return L 
+
+print(liste_mot_texte("Cela fait déjà 28 jours! 28 jours à l’IUT’O! Cool!!"))
+
