@@ -134,3 +134,23 @@ def true_sauf_premier(N):
     return liste
 print(true_sauf_premier(5))
 
+
+def false_multiple(x,N):
+    """_summary_
+
+    Args:
+        x (_type_): _description_
+        true_sauf_premier (_type_): _description_
+
+    Returns:
+        _type_: _description_
+    """    
+    Liste= true_sauf_premier(N)
+    for i in range(len(Liste)):
+            Liste[i]=not (i%x == 0 and i!=x)
+    return Liste
+
+print(false_multiple(2,6))
+
+def crible(N):
+    
