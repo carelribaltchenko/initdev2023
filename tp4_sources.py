@@ -115,3 +115,22 @@ def liste_mot_lettre_texte(texte, lettre):
     return L
 print(liste_mot_lettre_texte(phrase, 'C'))
 
+
+def true_sauf_premier(N):
+    """initialise une liste de N+ booléens tous a True sauf les 2 premiers
+
+    Args:
+        N (int): un nombre
+
+    Returns:
+        liste: la liste des booleens
+    """
+    liste = []
+    for i in range(N+1):
+        if i == 1 or i == 0:
+            liste.append(False)
+        else:
+            liste.append(True)
+    return liste
+print(true_sauf_premier(5))
+
