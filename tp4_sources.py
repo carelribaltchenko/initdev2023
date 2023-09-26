@@ -21,7 +21,6 @@ def plus_long_plateau(chaine):
         lg_max = lg_actuelle
     return lg_max
 
-print(plus_long_plateau("aazerrrtyyyyyy"))
 
 # --------------------------------------
 # Exemple de villes avec leur population
@@ -41,7 +40,6 @@ def ville_plus_peuplee():
             a=i
     return "la ville la plus peuplée est", liste_villes[a]
 
-print(ville_plus_peuplee())
 
 def chaine_nombre(chaine):
     """transforme un str en int
@@ -57,7 +55,6 @@ def chaine_nombre(chaine):
         a=a+int(chaine[i])*(10**(len(chaine)-i-1))
     return a
 
-print(chaine_nombre("123456789"))
 
 def recherche_mot(liste, lettre):
     """renvoie une liste avec tous les mots commencant par une lettre donnée
@@ -75,7 +72,6 @@ def recherche_mot(liste, lettre):
             L1.append(liste[i])
     return L1
 
-print(recherche_mot(["salut","hello","hallo","ciao","hola"],"a"))
 
 def liste_mot_texte(texte):
     """renvoie la liste des mots d'un texte
@@ -97,7 +93,6 @@ def liste_mot_texte(texte):
                 mot = ''
     return L 
 
-print(liste_mot_texte(phrase))
 
 def liste_mot_lettre_texte(texte, lettre):
     """renvoie les mots qui commencent par une lettre donnée dans une phrase
@@ -113,7 +108,6 @@ def liste_mot_lettre_texte(texte, lettre):
     Liste=liste_mot_texte(texte)
     L.append(recherche_mot(Liste, lettre))
     return L
-print(liste_mot_lettre_texte(phrase, 'C'))
 
 
 def true_sauf_premier(N):
@@ -132,7 +126,6 @@ def true_sauf_premier(N):
         else:
             liste.append(True)
     return liste
-print(true_sauf_premier(5))
 
 
 def false_multiple(x,N):
@@ -150,7 +143,7 @@ def false_multiple(x,N):
         Liste[i]=not (i%x == 0 and i!=x)
     return Liste
 
-print(false_multiple(2,6))
+
 
 def crible_eratostene(N):
     """renvoie la liste des nombres premiers jusqu'au terme N
@@ -172,4 +165,16 @@ def crible_eratostene(N):
             crible.append(i)
     return crible
 
-print(crible_eratostene(5))
+
+def all_print():
+    print(plus_long_plateau("aazerrrtyyyyyy"))
+    print(ville_plus_peuplee())
+    print(chaine_nombre("123456789"))
+    print(recherche_mot(["salut","hello","hallo","ciao","hola"],"a"))
+    print(liste_mot_texte(phrase))
+    print(liste_mot_lettre_texte(phrase, 'C'))
+    print(true_sauf_premier(5))
+    print(false_multiple(2,6))
+    print(crible_eratostene(5))
+
+print(all_print())
