@@ -136,21 +136,40 @@ print(true_sauf_premier(5))
 
 
 def false_multiple(x,N):
-    """_summary_
+    """renvoie une liste avec true tous les nombres qui ne sont pas multiple de N
 
     Args:
-        x (_type_): _description_
-        true_sauf_premier (_type_): _description_
+        x (int): le multiple du nombre
+        true_sauf_premier (list): le resultt du premier
 
     Returns:
-        _type_: _description_
+        list: true si c'est pas un multiple ou lui même 
     """    
     Liste= true_sauf_premier(N)
     for i in range(len(Liste)):
-            Liste[i]=not (i%x == 0 and i!=x)
+        Liste[i]=not (i%x == 0 and i!=x)
     return Liste
 
 print(false_multiple(2,6))
 
-def crible(N):
-    
+def crible_eratostene(N):
+    """renvoie la liste des nombres premiers jusqu'au terme N
+
+    Args:
+        N (int): un entier
+
+    Returns:
+        list: les nombres premiers grace au crible
+    """    
+    crible_bool=true_sauf_premier(N)
+    crible=[]
+    for i in range(2,len(crible_bool)):
+        liste_false=false_multiple(i,N)
+        for j in range(len(liste_false)):
+            if not liste_false[j]:
+                crible_bool[j]=False
+        if crible_bool[i]:
+            crible.append(i)
+    return crible
+
+print(crible_eratostene(5))
