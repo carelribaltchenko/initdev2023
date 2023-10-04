@@ -165,4 +165,18 @@ def meilleur_score(nom_joueur):
 
 print(meilleur_score('Robin'))
 
-def 
+def score_decroissant(liste):
+    """teste si la liste des score est dabns l'ordre decroissant 
+    Args:
+        list: la liste des scores
+
+    Returns:
+        bool: True si c'est trié et False sinon
+    """    
+    res=True
+    for i in range (len(liste)):
+        if liste[i]>liste[i-1]:
+            res=False
+    return res
+
+
