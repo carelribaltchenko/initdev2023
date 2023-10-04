@@ -137,11 +137,32 @@ def point_apres_at(adresse):
 
 print(est_mail("deznjzenjiz@jkdsdsgqg"))
 
-#exercice 5
+#exercice 4
 
 # ---------------------------------------
 # Exemple de scores
 # ---------------------------------------
 scores = [352100, 325410, 312785, 220199, 127853]
 joueurs = ['Batman', 'Robin', 'Batman', 'Joker', 'Batman']
+#4.1
+def meilleur_score(nom_joueur):
+    """renvoie le meilleur score du joueur donné en argument
 
+    Args:
+        nom_joueur (str): le nom d'u joueur
+
+    Returns:
+        int: le score du joueur
+    """    
+    scor=0
+    if nom_joueur not in joueurs:
+        return None
+    for i in range(len(joueurs)):
+        if joueurs[i]==nom_joueur:
+            if scores[i]>scor:
+                scor=scores[i]
+    return f"le meilleur score de {nom_joueur} est de {scor}"
+
+print(meilleur_score('Robin'))
+
+def 
