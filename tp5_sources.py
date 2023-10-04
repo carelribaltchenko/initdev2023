@@ -174,12 +174,20 @@ def score_decroissant(liste):
         bool: True si c'est trié et False sinon
     """    
     res=True
-    for i in range (len(liste)):
+    for i in range (1,len(liste)):
         if liste[i]>liste[i-1]:
             res=False
     return res
-
+print(score_decroissant(scores))
 def nb_joueur(nom_joueur):
+    """compte le nombre de fois dont un joueur apparait dans le tableau des scores
+
+    Args:
+        nom_joueur (str): le nom d'un joueur
+
+    Returns:
+        int: le nombre de fois ou le joueur apparait dans le tableau
+    """    
     cpt=0
     if nom_joueur not in joueurs:
         return None
@@ -187,4 +195,34 @@ def nb_joueur(nom_joueur):
         if joueurs[i]==nom_joueur:
             cpt+=1
     return cpt
+
+print(nb_joueur('Batman'))
+
+def best_scor(nom_joueur):
+    """renvoie la place du meilleur joueur
+
+    Args:
+        nom_joueur (str): le nom 
+
+    Returns:
+        _type_: _description_
+    """    
+    if nom_joueur not in joueurs :
+        return None
+    res=len(joueurs)+1
+    for i in range(len(joueurs)):
+        if joueurs[i]==nom_joueur and res>i:
+            res=i
+    return res+1
+
+print(best_scor('Robin'))
+
+def place_score(score):
+    place = 0
+    for i in range(len(scores)):
+        if scores[i]>score:
+            place+=1
+    return place
+print(place_score(314570))
+
 
