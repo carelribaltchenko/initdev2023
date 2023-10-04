@@ -179,4 +179,12 @@ def score_decroissant(liste):
             res=False
     return res
 
+def nb_joueur(nom_joueur):
+    cpt=0
+    if nom_joueur not in joueurs:
+        return None
+    for i in range(len(joueurs)):
+        if joueurs[i]==nom_joueur:
+            cpt+=1
+    return cpt
 
