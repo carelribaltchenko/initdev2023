@@ -19,10 +19,6 @@ def mystere(liste, valeur):
     return None
 
 
-print(mystere([12, 5, 8, 20, 12, 418, 20, 17, 5, 87], 20))
-
-
-
 def recherche_ind_nombre(phrase):
     """renvoie l'indice du premier nombre d'une phrase
 
@@ -63,7 +59,7 @@ def pop_ville(ville):
             return pop[i]
     return None
 
-print(pop_ville("Châteauroux"))
+
 
 
 #exercice3:
@@ -84,7 +80,7 @@ def est_triee(liste):
         t1=t2
     return True
 
-print(est_triee([1,2,3,4,5,8]))
+
 
 def somme_supp_seuil(liste,seuil):
     """renvoie true si la somme des terme de la liste dépasse un seuil
@@ -135,7 +131,7 @@ def point_apres_at(adresse):
                     return True
     return False
 
-print(est_mail("deznjzenjiz@jkdsdsgqg"))
+
 
 #exercice 4
 
@@ -161,9 +157,10 @@ def meilleur_score(nom_joueur):
         if joueurs[i]==nom_joueur:
             if table_scores[i]>scor:
                 scor=table_scores[i]
-    return f"le meilleur score de {nom_joueur} est de {scor}"
+    return scor
 
-print(meilleur_score('Robin'))
+    
+
 
 def score_decroissant(liste):
     """teste si la liste des score est dabns l'ordre decroissant 
@@ -178,7 +175,10 @@ def score_decroissant(liste):
         if liste[i]>liste[i-1]:
             res=False
     return res
-print(score_decroissant(table_scores))
+
+
+
+
 def nb_joueur(nom_joueur):
     """compte le nombre de fois dont un joueur apparait dans le tableau des table_scores
 
@@ -196,7 +196,8 @@ def nb_joueur(nom_joueur):
             cpt+=1
     return cpt
 
-print(nb_joueur('Batman'))
+
+
 
 def best_scor(nom_joueur):
     """renvoie la place du meilleur joueur
@@ -205,7 +206,7 @@ def best_scor(nom_joueur):
         nom_joueur (str): le nom 
 
     Returns:
-        _type_: _description_
+        int: la meilleur place du joueur
     """    
     if nom_joueur not in joueurs :
         return None
@@ -215,7 +216,7 @@ def best_scor(nom_joueur):
             res=i
     return res+1
 
-print(best_scor('Robin'))
+
 
 def place_score(score):
     """renvoie la place du score mis en paametre
@@ -231,7 +232,8 @@ def place_score(score):
         if table_scores[i]>score:
             place+=1
     return place
-print(place_score(314570))
+
+
 
 def insere_score(score, nom_joueur,table_scores, joueurs):
     """insere le score dans la lisete de score 
@@ -249,3 +251,37 @@ def insere_score(score, nom_joueur,table_scores, joueurs):
 insere_score(314570,'Joker',table_scores,joueurs)
 assert table_scores==[352100, 325410, 314570, 312785, 220199, 127853]
 assert joueurs == ['Batman', 'Robin', 'Joker', 'Batman', 'Joker', 'Batman']
+
+
+def test_meilleur_score():
+    assert meilleur_score('Batman')== 352100
+    assert meilleur_score('Robin')== 325410
+    assert meilleur_score('Joker')== 220199
+    assert meilleur_score('Eliott')==None
+
+
+def test_score_decroissant():
+    assert score_decroissant(table_scores)==True
+    assert score_decroissant([5,1,47,8,7,5])==False
+    assert score_decroissant([-1,-5,-8])==True
+    assert score_decroissant([0,0,0,0,0,0])==True
+
+
+def test_nb_joueur():
+    assert nb_joueur('Batman')==3
+    assert nb_joueur('Robin')==1
+    assert nb_joueur('Joker')==1
+    assert nb_joueur('Richard')==None
+
+
+def test_best_scor():
+    assert best_scor('Batman')==352100
+    assert best_scor('Robin')== 325410
+    assert best_scor('Joker')== 220199
+    assert best_scor('Kyllian')==None
+
+def test_place_score():
+    assert place_score(0)==4
+    assert place_score(314570)==2
+    assert place_score(999999999)==0
+    assert place_score(2)==4
