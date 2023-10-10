@@ -140,9 +140,9 @@ print(est_mail("deznjzenjiz@jkdsdsgqg"))
 #exercice 4
 
 # ---------------------------------------
-# Exemple de scores
+# Exemple de table_scores
 # ---------------------------------------
-scores = [352100, 325410, 312785, 220199, 127853]
+table_scores = [352100, 325410, 312785, 220199, 127853]
 joueurs = ['Batman', 'Robin', 'Batman', 'Joker', 'Batman']
 #4.1
 def meilleur_score(nom_joueur):
@@ -159,8 +159,8 @@ def meilleur_score(nom_joueur):
         return None
     for i in range(len(joueurs)):
         if joueurs[i]==nom_joueur:
-            if scores[i]>scor:
-                scor=scores[i]
+            if table_scores[i]>scor:
+                scor=table_scores[i]
     return f"le meilleur score de {nom_joueur} est de {scor}"
 
 print(meilleur_score('Robin'))
@@ -168,7 +168,7 @@ print(meilleur_score('Robin'))
 def score_decroissant(liste):
     """teste si la liste des score est dabns l'ordre decroissant 
     Args:
-        list: la liste des scores
+        list: la liste des table_scores
 
     Returns:
         bool: True si c'est trié et False sinon
@@ -178,9 +178,9 @@ def score_decroissant(liste):
         if liste[i]>liste[i-1]:
             res=False
     return res
-print(score_decroissant(scores))
+print(score_decroissant(table_scores))
 def nb_joueur(nom_joueur):
-    """compte le nombre de fois dont un joueur apparait dans le tableau des scores
+    """compte le nombre de fois dont un joueur apparait dans le tableau des table_scores
 
     Args:
         nom_joueur (str): le nom d'un joueur
@@ -218,11 +218,34 @@ def best_scor(nom_joueur):
 print(best_scor('Robin'))
 
 def place_score(score):
+    """renvoie la place du score mis en paametre
+
+    Args:
+        score (int): le score du joueur
+
+    Returns:
+        int: la place du score
+    """    
     place = 0
-    for i in range(len(scores)):
-        if scores[i]>score:
+    for i in range(len(table_scores)):
+        if table_scores[i]>score:
             place+=1
     return place
 print(place_score(314570))
 
+def insere_score(score, nom_joueur,table_scores, joueurs):
+    """insere le score dans la lisete de score 
+       et le joueur dans la liste de joueur au m
 
+    Args:
+        score (int): le score du joueur
+        nom_joueur (str): le nom du joueur
+        table_scores (list): la liste des scores
+        joueurs (list): la liste des joueur
+    """    
+    table_scores.insert(place_score(score),score)
+    joueurs.insert(place_score(score), nom_joueur)
+
+insere_score(314570,'Joker',table_scores,joueurs)
+assert table_scores==[352100, 325410, 314570, 312785, 220199, 127853]
+assert joueurs == ['Batman', 'Robin', 'Joker', 'Batman', 'Joker', 'Batman']
