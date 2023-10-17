@@ -4,10 +4,16 @@ import oiseaux
 # --------------------------------------
 
 def test_recherche_oiseau():
-    assert oiseaux.recherche_oiseau(...)==...
+    assert oiseaux.recherche_oiseau("Merle")=="Turtidé"
+    assert oiseaux.recherche_oiseau("Moineau")=="Passereau"
+    assert oiseaux.recherche_oiseau("Pie")=="Corvidé"
+    assert oiseaux.recherche_oiseau("toto")==None
 
 def test_recherche_par_famille():
-    assert oiseaux.recherche_par_famille(...)==...
+    assert oiseaux.recherche_par_famille("Passereau")==["Moineau","Mésange","Pinson","Rouge-gorge"]
+    assert oiseaux.recherche_par_famille("Corvidé")==["Pie"]
+    assert oiseaux.recherche_par_famille("Turtidé")==["Merle"]
+    assert oiseaux.recherche_par_famille("toto")==[]
 
 def test_oiseau_le_plus_observe():
     assert oiseaux.oiseau_le_plus_observe(oiseaux.observations1)=="Moineau"
@@ -38,4 +44,6 @@ def test_creer_ligne_noms_oiseaux():
     assert oiseaux.creer_ligne_noms_oiseaux(...)==...
 
 
-
+test_recherche_oiseau()
+test_oiseau_le_plus_observe()
+test_recherche_par_famille()

@@ -38,11 +38,46 @@ def oiseau_le_plus_observe(liste_observations):
     Returns:
         str: l'oiseau le plus observé (None si la liste est vide)
     """
+    if liste_observations==[]:
+        return None
     oiseau_max = liste_observations[0]
     for observation in liste_observations:
         if observation[1] > oiseau_max[1]:
             oiseau_max = observation
     return oiseau_max[0]
+
+def oiseau_le_plus_observe_indice(liste_observations):
+    """ recherche le nom de l'oiseau le plus observé de la liste
+        (si il y en a plusieur on donne le 1er trouve)
+
+    Args:
+        liste_observations (list): une liste de tuples (nom_oiseau, nb_observes)
+
+    Returns:
+        str: l'oiseau le plus observé (None si la liste est vide)
+    """
+    if liste_observations==[]:
+        return None
+    oiseau_max = liste_observations[0]
+    for i in range (len(liste_observations)):
+        if liste_observations[i][1] > oiseau_max[1]:
+            oiseau_max = liste_observations[i]
+    return oiseau_max[0]
+
+
+#exercice 2
+def recherche_oiseau(oiseau):
+    for piaf in oiseaux:
+        if piaf[0]==oiseau:
+            return piaf[1]
+    return None 
+
+def recherche_par_famille(famille):
+    res=[]
+    for i in range(len(oiseaux)):
+        if oiseaux[i][1] == famille:
+            res.append(oiseaux[i][0])
+    return res
 
 #--------------------------------------
 # PROGRAMME PRINCIPAL
