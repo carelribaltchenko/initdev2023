@@ -67,6 +67,14 @@ def oiseau_le_plus_observe_indice(liste_observations):
 
 #exercice 2
 def recherche_oiseau(oiseau):
+    """renvoie les caractéristiques d'un oiseau
+
+    Args:
+        oiseau (_type_): _description_
+
+    Returns:
+        _type_: _description_
+    """    
     for piaf in oiseaux:
         if piaf[0]==oiseau:
             return piaf[1]
@@ -79,6 +87,32 @@ def recherche_par_famille(famille):
             res.append(oiseaux[i][0])
     return res
 
+
+#exercice 3 ------------------------------
+def est_trié(liste_observations):
+    for i in range(1,len(liste_observations)):
+        if liste_observations[i-1][0]>liste_observations[i][0]:
+            return False
+    return True
+
+def est_liste_observations(liste_observations):
+    if liste_observations==[]:
+        return None
+    if not est_trié(liste_observations):
+        return False
+    for i in range(len(liste_observations)):
+        if liste_observations[i][1]==0:
+            return False
+    return True 
+
+def max_observations(liste_observations):
+    if liste_observations==[]:
+        return None
+    max=0
+    for oiseau in liste_observations:
+        if oiseau[1]>max:
+            max = oiseau[1]
+    return max 
 #--------------------------------------
 # PROGRAMME PRINCIPAL
 #--------------------------------------
