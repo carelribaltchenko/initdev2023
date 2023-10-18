@@ -22,7 +22,10 @@ def test_oiseau_le_plus_observe():
     assert oiseaux.oiseau_le_plus_observe([])==None
 
 def test_est_liste_observations():
-    assert oiseaux.est_liste_observations(...)==...
+    assert oiseaux.est_liste_observations(oiseaux.observations1)==True
+    assert oiseaux.est_liste_observations(oiseaux.observations2)==False
+    assert oiseaux.est_liste_observations(oiseaux.observations3)==True
+    assert oiseaux.est_liste_observations([])==None
 
 def test_max_observations():
     assert oiseaux.max_observations(...)==...
@@ -47,3 +50,4 @@ def test_creer_ligne_noms_oiseaux():
 test_recherche_oiseau()
 test_oiseau_le_plus_observe()
 test_recherche_par_famille()
+test_est_liste_observations()
