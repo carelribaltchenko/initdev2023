@@ -70,10 +70,10 @@ def recherche_oiseau(oiseau):
     """renvoie les caractéristiques d'un oiseau
 
     Args:
-        oiseau (_type_): _description_
+        oiseau (int): le nom d'un oiseau
 
     Returns:
-        _type_: _description_
+        int: sa famille
     """    
     for piaf in oiseaux:
         if piaf[0]==oiseau:
@@ -81,6 +81,14 @@ def recherche_oiseau(oiseau):
     return None 
 
 def recherche_par_famille(famille):
+    """renvoie la liste des oiseaux qui appartiennent à la même famille
+
+    Args:
+        famille (int): une famille d'oiseau
+
+    Returns:
+        list: la liste des oiseaux
+    """    
     res=[]
     for i in range(len(oiseaux)):
         if oiseaux[i][1] == famille:
@@ -96,6 +104,14 @@ def est_trié(liste_observations):
     return True
 
 def est_liste_observations(liste_observations):
+    """verifie si c'est une liste d'observation
+
+    Args:
+        liste_observations (list): une liste de tuples
+
+    Returns:
+        bool: True si 'est une liste d'observation et false sinon
+    """    
     if liste_observations==[]:
         return None
     if not est_trié(liste_observations):
@@ -106,6 +122,7 @@ def est_liste_observations(liste_observations):
     return True 
 
 def max_observations(liste_observations):
+
     if liste_observations==[]:
         return None
     max=0
@@ -113,6 +130,32 @@ def max_observations(liste_observations):
         if oiseau[1]>max:
             max = oiseau[1]
     return max 
+
+def moyenne_oiseaux_observes(liste_observations):
+    if liste_observations == []:
+        return None
+    tot=0
+    nbr=0
+    for i in range(len(liste_observations)):
+        nbr+=liste_observations[i][1]
+        tot+=1
+    return nbr/tot
+
+def total_famille(nom_famille, liste_observations):
+    if liste_observations == []:
+        return None
+    for i in range(len(oiseaux)):
+        if oiseau[1]==nom_famille:
+            liste_piaf.append(oiseaux[0])
+    somme=0
+    for oiseaux in liste_observations:
+        if oiseaux[1] in liste_piaf:
+            somme += oiseaux[0]
+    return somme
+
+            
+
+
 #--------------------------------------
 # PROGRAMME PRINCIPAL
 #--------------------------------------

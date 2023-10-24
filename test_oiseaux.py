@@ -28,10 +28,16 @@ def test_est_liste_observations():
     assert oiseaux.est_liste_observations([])==None
 
 def test_max_observations():
-    assert oiseaux.max_observations(...)==...
+    assert oiseaux.max_observations(oiseaux.observations1)==5
+    assert oiseaux.max_observations(oiseaux.observations2)==5
+    assert oiseaux.max_observations(oiseaux.observations3)==4
+    assert oiseaux.max_observations([])==None
 
 def test_moyenne_oiseaux_observes():
-    assert oiseaux.moyenne_oiseaux_observes(...)==...
+    assert oiseaux.moyenne_oiseaux_observes(oiseaux.observations1)==3.0
+    assert oiseaux.moyenne_oiseaux_observes(oiseaux.observations2)==2.5
+    assert oiseaux.moyenne_oiseaux_observes(oiseaux.observations3)==8/3
+    assert oiseaux.moyenne_oiseaux_observes([])==None
 
 def test_total_famille():
     assert oiseaux.total_famille(...)==...
@@ -51,3 +57,5 @@ test_recherche_oiseau()
 test_oiseau_le_plus_observe()
 test_recherche_par_famille()
 test_est_liste_observations()
+test_max_observations()N
+test_moyenne_oiseaux_observes()
