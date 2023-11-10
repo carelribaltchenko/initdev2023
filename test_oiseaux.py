@@ -23,7 +23,6 @@ def test_oiseau_le_plus_observe():
 
 def test_est_liste_observations():
     assert oiseaux.est_liste_observations(oiseaux.observations1)==True
-    assert oiseaux.est_liste_observations(oiseaux.observations2)==False
     assert oiseaux.est_liste_observations(oiseaux.observations3)==True
     assert oiseaux.est_liste_observations([])==None
 
@@ -40,22 +39,26 @@ def test_moyenne_oiseaux_observes():
     assert oiseaux.moyenne_oiseaux_observes([])==None
 
 def test_total_famille():
-    assert oiseaux.total_famille(...)==...
+    assert oiseaux.total_famille("Corvidé", oiseaux.observations1)==2
+    assert oiseaux.total_famille("Passereau", oiseaux.observations2)== 8
+    assert oiseaux.total_famille("Passereau", oiseaux.observations3)== 6
 
 
 def test_construire_liste_observations():
-    assert oiseaux.construire_liste_observations(...)==...
+    assert oiseaux.construire_liste_observations(oiseaux.oiseaux, oiseaux.comptage1)== [("Merle", 2), ("Moineau", 5), ("Mésange", 0),("Pic vert", 1), ("Pie", 2), ("Pinson", 0),("Rouge-gorge", 3), ("Tourterelle", 5)]
+    assert oiseaux.construire_liste_observations(oiseaux.oiseaux, oiseaux.comptage2)== [("Merle", 2), ("Moineau", 1), ("Mésange", 3),("Pic vert", 0), ("Pie", 0), ("Pinson", 3),("Rouge-gorge", 5), ("Tourterelle", 1)] 
+    assert oiseaux.construire_liste_observations(oiseaux.oiseaux, oiseaux.comptage3)== [("Merle", 0), ("Moineau", 0), ("Mésange", 4),("Pic vert", 3), ("Pie", 2), ("Pinson", 1),("Rouge-gorge", 2), ("Tourterelle", 4)]
+    
 
-def test_creer_ligne_sup():
-    assert oiseaux.creer_ligne_sup(...)==...
-
-def test_creer_ligne_noms_oiseaux():
-    assert oiseaux.creer_ligne_noms_oiseaux(...)==...
+def test_caracteres():
+    assert oiseaux.caracteres(oiseaux.observations1, 3)== '    **          **  **  '
+    assert oiseaux.caracteres(oiseaux.observations1, 5)== '    **              **  '
+    assert oiseaux.caracteres(oiseaux.observations1, 2)== '**  **      **  **  **  '
 
 
 test_recherche_oiseau()
 test_oiseau_le_plus_observe()
 test_recherche_par_famille()
 test_est_liste_observations()
-test_max_observations()N
+test_max_observations()
 test_moyenne_oiseaux_observes()

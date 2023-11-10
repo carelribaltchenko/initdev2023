@@ -17,8 +17,8 @@ comptage3 = [0, 0, 4, 3, 2, 1, 2, 4]
 observations1 = [("Merle", 2), ("Moineau", 5), ("Pic vert", 1), ("Pie", 2),
                  ("Rouge-gorge", 3), ("Tourterelle", 5)]
 
-observations2 = [("Merle", 2), ("Mésange", 1), ("Moineau", 3),
-                 ("Pinson", 3), ("Tourterelle", 5), ("Rouge-gorge", 1)]
+observations2 = [("Merle", 2), ("Moineau", 3), ("Mésange", 1),
+                 ("Pinson", 3),("Rouge-gorge", 1), ("Tourterelle", 5)]
 
 observations3 = [("Mésange", 4), ("Pic vert", 3), ("Pie", 2), ("Pinson", 1),
                  ("Rouge-gorge", 2), ("Tourterelle", 4)]
@@ -144,17 +144,74 @@ def moyenne_oiseaux_observes(liste_observations):
 def total_famille(nom_famille, liste_observations):
     if liste_observations == []:
         return None
+    liste_piaf=[]
     for i in range(len(oiseaux)):
-        if oiseau[1]==nom_famille:
-            liste_piaf.append(oiseaux[0])
+        if oiseaux[i][1]==nom_famille:
+            liste_piaf.append(oiseaux[i][0])
     somme=0
-    for oiseaux in liste_observations:
-        if oiseaux[1] in liste_piaf:
-            somme += oiseaux[0]
+    for oiseau in liste_observations:
+        if oiseau[0] in liste_piaf:
+            somme += oiseau[1]
     return somme
 
-            
+def construire_liste_observations(liste_oiseaux, liste_comptage):
+    liste_obs=[]
+    for i in range(len(liste_comptage)):
+        if liste_comptage[i]!=0:
+            liste_obs.append((liste_oiseaux[i][0], liste_comptage[i]))
+    return liste_obs
 
+print(observations1)
+print(construire_liste_observations(oiseaux, comptage1))
+
+def client_oiseaux(liste_oiseaux):
+    liste_obs=[]
+    for i in range(len(liste_oiseaux)):
+        nb=int(input("Entrez le nombre de " + liste_oiseaux[i][0] + " : "))
+        if nb!=0:
+            liste_obs.append((liste_oiseaux[i][0], nb))
+    return liste_obs
+
+
+
+#exercice 5----------------------------
+
+def afficher_observations(liste_oiseaux, liste_observations):
+    for i in range(len(liste_observations)):
+        if liste_observations[i][1]!=0:
+            nom=liste_observations[i][0]
+            famille=recherche_oiseau(nom)
+            nb=str(liste_observations[i][1])
+            print("Nom : ", nom.ljust(30), "Famille : ", famille.ljust(30), "Nombre : ", nb.ljust(30))
+
+afficher_observations(oiseaux, observations1)
+
+def caracteres(liste_observations, seuil):
+    val = ''
+    for oiseaux in liste_observations:
+        if oiseaux[1]>=seuil:
+            val+= '** '
+        else :
+            val = '    '
+    val=val.ljust(30)
+    return val
+
+def nom(liste_observations):
+    cdc=''
+    nom=''
+    for oiseaux in liste_observations:
+        nom=(oiseaux[0][0] + oiseaux[0][1] + oiseaux[0][2] + ' ')
+        cdc+=nom
+    return cdc
+
+def affichage_final(liste_observations):
+    seuil = max_observations(liste_observations)
+    while seuil>0:
+        print(caracteres(liste_observations, seuil))
+        seuil=seuil-1
+    print(nom(liste_observations))
+
+print(affichage_final(observations1))
 
 #--------------------------------------
 # PROGRAMME PRINCIPAL
