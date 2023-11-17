@@ -24,6 +24,7 @@ def test_frequences_famille():
     mon_pokedex = [('Bulbizarre', 'Plante'), ('Aeromite', 'Poison'), ('Abo', 'Poison')]
     assert petites_betes.frequences_famille(mon_pokedex) == {'Plante': 1, 'Poison': 2}
 
+test_frequences_famille()
 
 def test_dico_par_famille():
     mon_pokedex = [('Bulbizarre', 'Plante'), ('Aeromite', 'Poison'), ('Abo', 'Poison')]
@@ -31,12 +32,13 @@ def test_dico_par_famille():
         'Plante': {'Bulbizarre'},
         'Poison': {'Aeromite', 'Abo'}}
 
+test_dico_par_famille()
 
 def test_famille_la_plus_representee():
     mon_pokedex = [('Bulbizarre', 'Plante'), ('Aeromite', 'Poison'), ('Abo', 'Poison')]
     assert petites_betes.famille_la_plus_representee(mon_pokedex) == 'Poison'
 
-
+test_famille_la_plus_representee()
 
 # ==================================
 # TESTS pour l'exercice 4
