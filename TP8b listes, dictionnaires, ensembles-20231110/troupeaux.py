@@ -45,7 +45,7 @@ def specialise(troupeau):
     for nbr in troupeau.values():
         if nbr>=30:
             res=True
-    return False
+    return res
 
 
 def le_plus_represente(troupeau):
@@ -78,7 +78,11 @@ def quantite_suffisante(troupeau):
         bool: True si le troupeau contient au moins 5 individus de chaque type d'animal
         False sinon    
     """
-    ...
+    res=True
+    for nbr in troupeau.values():
+        if nbr<5:
+            res=False
+    return res
 
 
 def reunion_troupeaux(troupeau1, troupeau2):
@@ -91,6 +95,18 @@ def reunion_troupeaux(troupeau1, troupeau2):
     Returns:
         dict: le dictionnaire modélisant la réunion des deux troupeaux    
     """
-    ...
-
-
+    val={}
+    res=0
+    if troupeau1=={}:
+        return troupeau2
+    if troupeau2=={}:
+        return troupeau1
+    for (nom, nb) in troupeau1.items():
+        val[nom]=nb
+    for (nom, nb) in troupeau2.items():
+        if nom not in val:
+            val[nom]=nb
+        else:
+            res=val[nom]
+            val[nom]=res+nb
+    return val

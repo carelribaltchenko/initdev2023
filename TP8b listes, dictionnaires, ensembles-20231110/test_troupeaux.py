@@ -34,9 +34,9 @@ def test_specialise():
     assert troupeaux.specialise(troupeau_de_perrette)
     assert not troupeaux.specialise(troupeau_de_jean)
     assert not troupeaux.specialise(troupeau_vide)
-    assert not troupeaux.specialiste(mon_troupeau)
+    assert not troupeaux.specialise(mon_troupeau)
 
-test_specialise
+test_specialise()
 
 def test_quantite_suffisante():
     troupeau_de_jean = {'vache':12, 'cochon':17, 'veau':3}
@@ -46,8 +46,9 @@ def test_quantite_suffisante():
     assert troupeaux.quantite_suffisante(troupeau_de_perrette)
     assert not troupeaux.quantite_suffisante(troupeau_de_jean)
     assert troupeaux.quantite_suffisante(troupeau_vide)
-    assert ...
+    assert not troupeaux.quantite_suffisante(mon_troupeau)
 
+test_quantite_suffisante()
 
 def test_le_plus_represente():
     troupeau_de_jean = {'vache':12, 'cochon':17, 'veau':3}
@@ -71,12 +72,12 @@ def test_reunion_troupeaux():
     assert troupeaux.reunion_troupeaux(troupeau_de_perrette, troupeau_de_jean) == {'vache':12+7, 'cochon':17, 'veau':3+14, 'poule':42}
     assert troupeau_de_jean == {'vache':12, 'cochon':17, 'veau':3}
     assert troupeau_de_perrette == {'veau':14, 'vache':7, 'poule':42}
-    assert troupeaux.reunion_troupeaux(troupeau_de_perrette, mon_troupeau) == ...
-    assert troupeaux.reunion_troupeaux(mon_troupeau, troupeau_de_jean) == ...
+    assert troupeaux.reunion_troupeaux(troupeau_de_perrette, mon_troupeau) == {'veau':14, 'vache':7, 'poule':42, 'chevache':3, 'le poulet':8, 'troll':19}
+    assert troupeaux.reunion_troupeaux(mon_troupeau, troupeau_de_jean) == {'chevache':3, 'le poulet':8, 'troll':19, 'vache':12, 'cochon':17, 'veau':3}
     assert troupeau_de_jean == {'vache':12, 'cochon':17, 'veau':3}
     assert troupeau_de_perrette == {'veau':14, 'vache':7, 'poule':42}
 
-
+test_reunion_troupeaux()
 
 
 
