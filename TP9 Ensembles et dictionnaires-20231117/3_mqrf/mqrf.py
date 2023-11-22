@@ -36,7 +36,13 @@ def quel_guichet_v2(mqrf, guichet):
         tuple: le nom du guichet qui finit par donner le formulaire A-38 et le nombre de
         guichets visités pour y parvenir
     """
-    ...
+    depart = guichet
+    guichet_traverse=1
+    while mqrf[depart] != None:
+        arrivee=mqrf[depart]
+        depart=arrivee
+        guichet_traverse+=1
+    return depart, guichet_traverse
 
 
 def quel_guichet_v3(mqrf, guichet):
@@ -53,5 +59,14 @@ def quel_guichet_v3(mqrf, guichet):
         S'il n'est pas possible d'obtenir le formulaire en partant du guichet de depart,
         cette fonction renvoie None
     """
-    ...
+    depart = guichet
+    guichet_traverse=1
+    while mqrf[depart] != None:
+        arrivee=mqrf[depart]
+        depart=arrivee
+        guichet_traverse+=1
+        if guichet_traverse==len(mqrf):
+            return None
+    return (depart, guichet_traverse)
+
 

@@ -22,7 +22,7 @@ def test_quel_guichet_v2():
              "Astus":"Gugus", "Gugus":"Plexus", "Saudepus":None}
     assert mqrf.quel_guichet_v2(mqrf1, "Saudepus") == ("Saudepus", 1)
     assert mqrf.quel_guichet_v2(mqrf2, "Abribus") == ("Saudepus", 5)
-
+test_quel_guichet_v2()
 
 def test_quel_guichet_v3():
     mqrf1 = {"Abribus":"Astus", "Jeancloddus":"Abribus", "Plexus":"Gugus",
@@ -33,3 +33,5 @@ def test_quel_guichet_v3():
             "Plexus":"Jeancloddus", "Astus":"Gugus",
             "Gugus":"Plexus", "Saudepus":"Bielorus"}
     assert mqrf.quel_guichet_v3(mqrf3, "Abribus") is None
+
+test_quel_guichet_v3()
