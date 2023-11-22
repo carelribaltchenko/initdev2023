@@ -3,6 +3,9 @@
 # La maison qui rend fou
 # ==========================
 
+#3.1 : on obtiens le formulaire A-38 par Astus si on part par Abribus
+
+
 def quel_guichet(mqrf, guichet):
     """Détermine le nom du guichet qui délivre le formulaire A-38
 
@@ -13,7 +16,12 @@ def quel_guichet(mqrf, guichet):
     Returns:
         str: le nom du guichet qui finit par donner le formulaire A-38
     """
-    ...
+    depart = guichet
+    while mqrf[depart] != None:
+        arrivee=mqrf[depart]
+        depart=arrivee
+    return depart
+
 
 
 def quel_guichet_v2(mqrf, guichet):

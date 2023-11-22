@@ -13,6 +13,8 @@ def test_quel_guichet():
     assert mqrf.quel_guichet(mqrf1, "Abribus") == "Astus"
     assert mqrf.quel_guichet(mqrf2, "Abribus") == "Saudepus"
 
+test_quel_guichet()
+
 def test_quel_guichet_v2():
     mqrf1 = {"Abribus":"Astus", "Jeancloddus":"Abribus", "Plexus":"Gugus",
              "Astus":None, "Gugus":"Plexus", "Saudepus":None}
