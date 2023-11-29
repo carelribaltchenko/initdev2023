@@ -22,7 +22,9 @@ def exemples_pokedex_v2():
         'Carmache': {'Dragon','Sol'},
         'Colimucus': {'Dragon'},
         'Palkia': {'Dragon', 'Eau'}}
-    pokedex_romain = ...   
+    pokedex_romain = {
+        'Maraiste': {'Eau', 'Sol'},
+        'Racaillou' : {'Sol', 'Roche'}}   
     return (pokedex_anakin, pokedex_romain)
 
 def exemples_pokedex_v3():
