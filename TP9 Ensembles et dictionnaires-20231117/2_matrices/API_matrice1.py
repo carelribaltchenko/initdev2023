@@ -12,7 +12,13 @@ def matrice(nb_lignes, nb_colonnes, valeur_par_defaut):
     Returns:
         une nouvelle matrice qui contient la valeur par défaut dans chacune de ses cases
     """
-    ...
+    val=[]
+    for i in range(nb_lignes):
+        for j in range(nb_colonnes):
+            val.append(valeur_par_defaut)
+    mat=(nb_lignes, nb_colonnes, val)
+    return mat
+
 
 
 
@@ -29,7 +35,7 @@ def set_val(la_matrice, ligne, colonne, nouvelle_valeur):
     Returns:
         None
     """
-    ...
+    la_matrice[2][ligne*la_matrice[1]+colonne]=nouvelle_valeur
 
 
 def get_nb_lignes(la_matrice):
@@ -41,7 +47,7 @@ def get_nb_lignes(la_matrice):
     Returns:
         int : le nombre de lignes de la matrice
     """
-    ...
+    return la_matrice[0]
 
 
 def get_nb_colonnes(la_matrice):
@@ -53,7 +59,7 @@ def get_nb_colonnes(la_matrice):
     Returns:
         int : le nombre de colonnes de la matrice
     """
-    ...
+    return la_matrice[1]
 
 
 def get_val(la_matrice, ligne, colonne):
@@ -68,7 +74,7 @@ def get_val(la_matrice, ligne, colonne):
     Returns:
         la valeur qui est dans la case située à la ligne et la colonne spécifiées
     """
-    ...
+    return la_matrice[2][ligne*la_matrice[1]+colonne]
 
 # Fonctions pour l'affichage
 
@@ -119,8 +125,20 @@ def charge_matrice_str(nom_fichier):
     Returns:
         une matrice de str
     """
-    ...
+    c=0
+    matrice=[]
+    l=0
+    fic=open(nom_fichier,'r')
+    for elt in fic:
+        ligne=elt.split(',')
+        ligne.pop()
+        matrice+=ligne
+        l+=1
+    fic.close()
+    c=len(matrice)//l
+    return (l, c, matrice)
 
+print(charge_matrice_str("/home/iut45/Etudiants/o22301884/init-dev/initdev_git/initdev2023/TP9 Ensembles et dictionnaires-20231117/2_matrices/matrice.csv"))
 
 def sauve_matrice(la_matrice, nom_fichier):
     """permet sauvegarder une matrice dans un fichier CSV.
@@ -133,4 +151,10 @@ def sauve_matrice(la_matrice, nom_fichier):
     Returns:
         None
     """
-    ...
+    with open(nom_fichier, 'w', newline='') as csvfile:
+        writer = csv.writer(csvfile)
+        for ligne in la_matrice:
+            writer.writerow(ligne)
+
+
+def get_ligne(la_matrice, ligne_voulue):
