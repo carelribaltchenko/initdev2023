@@ -33,7 +33,10 @@ def exemples_pokedex_v3():
         'Dragon': {'Carmache','Colimucus', 'Palkia'},
         'Sol': {'Carmache'},
         'Eau': {'Palkia'}}
-    pokedex_romain = ...
+    pokedex_romain = {
+        'Eau' : {'Maraiste'},
+        'Sol' : {'Maraiste', 'Racaillou'},
+        'Roche' : {'Racaillou'}}
     return (pokedex_anakin, pokedex_romain)
 
 
@@ -78,12 +81,14 @@ def test_appartient_v2():
     assert not pokedex.appartient_v2("Racaillou", pokedex_anakin)
     assert pokedex.appartient_v2("Racaillou", pokedex_romain)
 
+test_appartient_v2()
 
 def test_toutes_les_attaques_v2():
     (pokedex_anakin, pokedex_romain) = exemples_pokedex_v2()
     assert pokedex.toutes_les_attaques_v2("Palkia", pokedex_anakin) == {'Eau', 'Dragon'}
     assert pokedex.toutes_les_attaques_v2("Colimucus", pokedex_anakin) == {'Dragon'}
 
+test_toutes_les_attaques_v2()
 
 def test_nombre_de_v2():
     (pokedex_anakin, pokedex_romain) = exemples_pokedex_v2()
@@ -106,22 +111,28 @@ def test_appartient_v3():
     assert not pokedex.appartient_v3("Racaillou", pokedex_anakin)
     assert pokedex.appartient_v3("Racaillou", pokedex_romain)
 
+test_appartient_v3()
 
 def test_toutes_les_attaques_v3():
     (pokedex_anakin, pokedex_romain) = exemples_pokedex_v3()
     assert pokedex.toutes_les_attaques_v3("Palkia", pokedex_anakin) == {'Eau', 'Dragon'}
     assert pokedex.toutes_les_attaques_v3("Colimucus", pokedex_anakin) == {'Dragon'}
 
+test_toutes_les_attaques_v3()
 
 def test_nombre_de_v3():
     (pokedex_anakin, pokedex_romain) = exemples_pokedex_v3()
     assert pokedex.nombre_de_v3("Dragon", pokedex_anakin) == 3
     assert pokedex.nombre_de_v3("Dragon", pokedex_romain) == 0
 
+test_nombre_de_v3()
+
 def test_attaque_preferee_v3():
     (pokedex_anakin, pokedex_romain) = exemples_pokedex_v3()
     assert pokedex.attaque_preferee_v3(pokedex_anakin) == "Dragon"
     assert pokedex.attaque_preferee_v3(pokedex_romain) == "Sol"
+
+test_toutes_les_attaques_v3()
 
 # ==================================
 # Exercice 1 : Transformations
@@ -133,8 +144,12 @@ def test_v1_to_v2():
     assert pokedex.v1_to_v2(pokedex_anakin_v1) == pokedex_anakin_v2
     assert pokedex.v1_to_v2(pokedex_romain_v1) == pokedex_romain_v2
 
+test_v1_to_v2()
+
 def test_v2_to_v3():
     (pokedex_anakin_v3, pokedex_romain_v3) = exemples_pokedex_v3()
     (pokedex_anakin_v2, pokedex_romain_v2) = exemples_pokedex_v2()    
     assert pokedex.v2_to_v3(pokedex_anakin_v2) == pokedex_anakin_v3
     assert pokedex.v2_to_v3(pokedex_romain_v2) == pokedex_romain_v3
+
+test_v2_to_v3()
